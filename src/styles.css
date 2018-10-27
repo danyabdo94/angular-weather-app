@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'assets/weather-icons-master/css/weather-icons.min.css';
+@import 'assets/weather-icons-master/css/weather-icons-wind.min.css';
+
+body {
+  margin: 2% 5%;
+  background: #fcfeff;
+  color: #0C2C52;
+}
+.mat-card {
+  background: #fcfeff;
+  color: #0C2C52;
+}

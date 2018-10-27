@@ -1,0 +1,21 @@
+<mat-card>Current Weather Status:
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutAlign="start start">
+      <div fxFlex="40">
+        <mat-card>
+          <mat-card-content *ngIf="currentWeather">
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxFlex="30">
+                <span *ngIf="currentWeather.current_condition.weatherDesc">
+                    <i class="wi wi-day-sunny wi-flip-vertical"></i>
+                </span>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
