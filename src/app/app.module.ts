@@ -10,16 +10,23 @@ import { CityComponent } from "./components/city/city.component";
 import { HelperService } from "./services/helper.service";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { MatCardModule } from "@angular/material/card";
+import { MatTooltipModule } from "@angular/material/tooltip";
+import { WeatherWidgetComponent } from "./components/weather-widget/weather-widget.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { VisualizeD3WeatherComponent } from "./components/visualize-d3-weather/visualize-d3-weather.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     CountryComponent,
     CityComponent,
+    WeatherWidgetComponent,
+    VisualizeD3WeatherComponent,
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     routing,
     NgxLoadingModule.forRoot({
@@ -31,7 +38,8 @@ import { MatCardModule } from "@angular/material/card";
       tertiaryColour: "#ffffff"
     }),
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule
   ],
   providers: [HelperService],
   bootstrap: [AppComponent]

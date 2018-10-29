@@ -1,33 +1,67 @@
 import { Url } from "url";
 
-export const climateCondition = {
-  "Sunny": 113,
-  "Clear": 113,
-  "Partly cloudy": 116,
-  "Cloudy": 119,
-  "Overcast": 122,
-  "Mist": 143,
-  "Patchy rain possible": 176,
-  "Patchy snow possible": 179,
-  "Patchy sleet possible": 182,
-  "Patchy freezing drizzle possible": 185,
-  "Thundery outbreaks possible": 200,
-  "Blowing snow": 227,
-  "Blizzard": 230,
-  "Fog": 248,
-  "Freezing fog": 260,
-  "Patchy light drizzle": 263,
-  "Light drizzle": 266,
-  "Freezing drizzle": 281,
-  "Heavy freezing drizzle": 284,
-  "Patchy light rain": 293,
-  "Light rain": 296,
-  "Moderate rain at times": 299,
-  "Moderate rain": 302,
-  "Heavy rain at times": 305,
-  "Heavy rain": 308,
-  "Light freezing rain": 311
+export const climateDayCondition = {
+  "Sunny": "wi-day-sunny",
+  "Partly cloudy": "wi-day-cloudy",
+  "Cloudy": "wi-cloudy",
+  "Overcast": "wi-day-sunny-overcast",
+  "Mist": "wi-fog",
+  "Patchy rain possible": "wi-day-rain",
+  "Patchy snow possible": "wi-snow",
+  "Patchy sleet possible": "wi-sleet",
+  "Patchy freezing drizzle possible": "wi-snowflake-cold",
+  "Thundery outbreaks possible": "wi-thunderstorm",
+  "Blowing snow": "wi-snow-wind",
+  "Blizzard": "wi-day-snow-thunderstorm",
+  "Fog": "wi-day-fog",
+  "Freezing fog": "wi-day-fog",
+  "Patchy light drizzle": "wi-day-cloudy-windy",
+  "Light drizzle": "wi-day-cloudy-windy",
+  "Freezing drizzle": "wi-day-cloudy-windy",
+  "Heavy freezing drizzle": "wi-day-cloudy-windy",
+  "Patchy light rain": "wi-day-rain",
+  "Light rain": "wi-day-rain",
+  "Moderate rain at times": "wi-day-rain-mix",
+  "Moderate rain": "wi-day-rain-mix",
+  "Heavy rain at times": "wi-day-hail",
+  "Heavy rain": "wi-day-hail",
+  "Light freezing rain": "wi-day-sleet"
 };
+export const climateNightCondition = {
+  "Clear": "wi-moon-alt-waning-crescent-6",
+  "Partly cloudy": "wi-night-cloudy",
+  "Cloudy": "wi-cloudy",
+  "Overcast": "wi-night-sunny-overcast",
+  "Mist": "wi-fog",
+  "Patchy rain possible": "wi-night-rain",
+  "Patchy snow possible": "wi-snow",
+  "Patchy sleet possible": "wi-sleet",
+  "Patchy freezing drizzle possible": "wi-snowflake-cold",
+  "Thundery outbreaks possible": "wi-thunderstorm",
+  "Blowing snow": "wi-snow-wind",
+  "Blizzard": "wi-night-snow-thunderstorm",
+  "Fog": "wi-night-fog",
+  "Freezing fog": "wi-night-fog",
+  "Patchy light drizzle": "wi-night-cloudy-windy",
+  "Light drizzle": "wi-night-cloudy-windy",
+  "Freezing drizzle": "wi-night-cloudy-windy",
+  "Heavy freezing drizzle": "wi-night-cloudy-windy",
+  "Patchy light rain": "wi-night-rain",
+  "Light rain": "wi-night-rain",
+  "Moderate rain at times": "wi-night-rain-mix",
+  "Moderate rain": "wi-night-rain-mix",
+  "Heavy rain at times": "wi-night-hail",
+  "Heavy rain": "wi-night-hail",
+  "Light freezing rain": "wi-night-sleet"
+};
+
+export class WeatherInterface {
+  constructor(
+    public time?: number,
+    public value?: number
+  ) { }
+}
+
 
 
 export class Climate {
@@ -37,27 +71,25 @@ export class Climate {
       temp_C: string,
       temp_F: string,
       weatherCode: string,
-      weatherIconUrl: [
-        {
-          value: string
-        }
-      ],
-      weatherDesc: [
-        {
-          value: string
-        }
-      ],
-      windspeedMiles: number,
-      windspeedKmph: number,
-      winddirDegree: number,
+      localObsDateTime: string,
+      isdaytime: string,
+      weatherIconUrl: {
+        value: string
+      }[],
+      weatherDesc: {
+        value: string
+      }[],
+      windspeedMiles: string,
+      windspeedKmph: string,
+      winddirDegree: string,
       winddir16Point: string,
-      precipMM: number,
-      humidity: number,
-      visibility: number,
-      pressure: number,
-      cloudcover: number,
-      FeelsLikeC: number,
-      FeelsLikeF: number
+      precipMM: string,
+      humidity: string,
+      visibility: string,
+      pressure: string,
+      cloudcover: string,
+      FeelsLikeC: string,
+      FeelsLikeF: string
     }[],
     public weather?:
       {
@@ -72,71 +104,67 @@ export class Climate {
             moon_illumination: string
           }
         ],
-        maxtempC: number,
-        maxtempF: number,
-        mintempC: number,
-        mintempF: number,
-        totalSnow_cm: number,
-        sunHour: number,
-        uvIndex: number,
+        maxtempC: string,
+        maxtempF: string,
+        mintempC: string,
+        mintempF: string,
+        totalSnow_cm: string,
+        sunHour: string,
+        uvIndex: string,
         hourly:
         {
-          time: number,
-          tempC: number,
-          tempF: number,
-          windspeedMiles: number,
-          windspeedKmph: number,
-          winddirDegree: number,
+          time: string,
+          tempC: string,
+          tempF: string,
+          windspeedMiles: string,
+          windspeedKmph: string,
+          winddirDegree: string,
           winddir16Point: string,
-          weatherCode: number,
-          weatherIconUrl: [
-            {
-              value: string
-            }
-          ],
-          weatherDesc: [
-            {
-              value: string
-            }
-          ],
-          precipMM: number,
-          humidity: number,
-          visibility: number,
-          pressure: number,
-          cloudcover: number,
-          HeatIndexC: number,
-          HeatIndexF: number,
-          DewPointC: number,
-          DewPointF: number,
-          WindChillC: number,
-          WindChillF: number,
-          WindGustMiles: number,
-          WindGustKmph: number,
-          FeelsLikeC: number,
-          FeelsLikeF: number,
-          chanceofrain: number,
-          chanceofremdry: number,
-          chanceofwindy: number,
-          chanceofovercast: number,
-          chanceofsunshine: number,
-          chanceoffrost: number,
-          chanceofhightemp: number,
-          chanceoffog: number,
-          chanceofsnow: number,
-          chanceofthunder: number
+          weatherCode: string,
+          weatherIconUrl: {
+            value: string
+          }[],
+          weatherDesc: {
+            value: string
+          }[],
+          precipMM: string,
+          humidity: string,
+          visibility: string,
+          pressure: string,
+          cloudcover: string,
+          HeatIndexC: string,
+          HeatIndexF: string,
+          DewPointC: string,
+          DewPointF: string,
+          WindChillC: string,
+          WindChillF: string,
+          WindGustMiles: string,
+          WindGustKmph: string,
+          FeelsLikeC: string,
+          FeelsLikeF: string,
+          chanceofrain: string,
+          chanceofremdry: string,
+          chanceofwindy: string,
+          chanceofovercast: string,
+          chanceofsunshine: string,
+          chanceoffrost: string,
+          chanceofhightemp: string,
+          chanceoffog: string,
+          chanceofsnow: string,
+          chanceofthunder: string
         }[]
-      },
+      }[],
     public ClimateAverages?:
       {
         month:
         {
-          index: number,
+          index: string,
           name: string,
-          avgMinTemp: number,
-          avgMinTemp_F: number,
-          absMaxTemp: number,
-          absMaxTemp_F: number,
-          avgDailyRainfall: number,
+          avgMinTemp: string,
+          avgMinTemp_F: string,
+          absMaxTemp: string,
+          absMaxTemp_F: string,
+          avgDailyRainfall: string,
         }[]
       }[]
   ) { }

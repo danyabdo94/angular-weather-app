@@ -1,0 +1,22 @@
+<div fxLayout="row" fxLayoutAlign="center center" *ngIf="ready">
+  <div fxFlex="100" style="text-align: center;">
+    <span class="weatherFigureContainer" *ngIf="weatherDesc">
+      <i class="wi" [ngClass]="dayLight? climateDayConditions[weatherDesc]:climateNightConditions[weatherDesc]"></i>
+    </span>
+    <span>
+      <h4 class="mat-display-2" style="margin: 0;">{{temp_C}}°</h4>
+      <span class="mat-small">Min:{{mintempC}}° , Max:{{maxtempC}}°</span>
+    </span>
+    <span>
+      <b>
+        <h5 class="mat-subheading-1" style="margin: 0;font-size: 17px !important;">{{weatherDesc}}</h5>
+      </b>
+    </span>
+    <span>
+      <i class="wi wi-humidity"> Humidity: {{humidity}}%</i>
+    </span>
+    <span>
+      <i class="wi wi-barometer"> Pressure: {{pressure}}</i>
+    </span>
+  </div>
+</div>

@@ -27,6 +27,8 @@ export class WeatherService {
               "observation_time": "03:30 PM",
               "temp_C": "25",
               "temp_F": "77",
+              "localObsDateTime": "2018-10-28 12:44 AM",
+              "isdaytime": "no",
               "weatherCode": "113",
               "weatherIconUrl": [
                 {
@@ -554,4 +556,13 @@ export class WeatherService {
     );
     // return this.httpClient.get("http://api.worldweatheronline.com/premium/v1/weather.ashx?key=2e9f306c80f949aa969150517182510&" + queries);
   }
+
+  getCityFromIp(ip) {
+    return this.httpClient.get("http://www.geoplugin.net/json.gp?ip=" + ip);
+  }
+
+  getIp() {
+    return this.httpClient.get("https://api.ipify.org?format=json");
+  }
+
 }

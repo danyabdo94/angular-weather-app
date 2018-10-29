@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { countries } from "../../../assets/countries";
 import { WeatherService } from "src/app/services/weather.service";
-import { Climate } from "src/app/models/climate";
+import { Climate, WeatherInterface } from "src/app/models/climate";
 
 @Component({
   selector: "app-country",
@@ -12,13 +12,16 @@ export class CountryComponent implements OnInit {
 
   countries = countries;
   currentWeather: Climate = null;
-
+  geopluginData: any = null;
+  weatherData: WeatherInterface[] = [];
   filteredObject: {
     q: string,
     format: string
+    extra: string
   } = {
       q: null,
-      format: "json"
+      format: "json",
+      extra: "localObsTime,isDayTime"
     };
 
   constructor(private weatherService: WeatherService) {
@@ -31,10 +34,20 @@ export class CountryComponent implements OnInit {
         position => {
           console.log(position);
           this.filteredObject.q = position.coords.latitude + "," + position.coords.longitude;
-          this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData) => {
+          this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData: { data: any }) => {
             this.currentWeather = weatherData.data;
-            console.log(weatherData);
+            console.log(this.currentWeather);
+            this.currentWeather.weather[0].hourly.forEach(hourWeather => {
+              this.weatherData.push(new WeatherInterface(Number(hourWeather.time) / 100, Number(hourWeather.tempC)));
+            });
           });
+
+          this.weatherService.getIp().subscribe((data: { ip: string }) => {
+            this.weatherService.getCityFromIp(data.ip).subscribe(clientData => {
+              this.geopluginData = clientData;
+            });
+          });
+
         },
         error => {
           switch (error.code) {
@@ -48,8 +61,7 @@ export class CountryComponent implements OnInit {
               console.log("Timeout");
               break;
           }
-        }
-      );
+        });
     }
   }
 

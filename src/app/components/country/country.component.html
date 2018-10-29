@@ -1,4 +1,11 @@
-<mat-card>Current Weather Status:
+<mat-card>
+  <mat-card-header *ngIf="geopluginData && currentWeather">
+    <div matTooltip="based on your geolocation">
+      <span>Weather of {{geopluginData.geoplugin_city}}: at </span>
+      <span>
+        {{currentWeather.current_condition[0].localObsDateTime}}</span>
+    </div>
+  </mat-card-header>
   <mat-card-content>
     <div fxLayout="row" fxLayoutAlign="start start">
       <div fxFlex="40">
@@ -6,13 +13,23 @@
           <mat-card-content *ngIf="currentWeather">
             <div fxLayout="row" fxLayoutAlign="space-between center">
               <div fxFlex="30">
-                <span *ngIf="currentWeather.current_condition.weatherDesc">
-                    <i class="wi wi-day-sunny wi-flip-vertical"></i>
-                </span>
+                <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isDayTime=='yes'"
+                  [humidity]="currentWeather.current_condition[0].humidity" [temp_C]="currentWeather.current_condition[0].temp_C"
+                  [pressure]="currentWeather.current_condition[0].pressure" [mintempC]="currentWeather.weather[0].mintempC"
+                  [maxtempC]="currentWeather.weather[0].maxtempC">
+                </app-weather-widget>
+              </div>
+              <div fxFlex="70">
+                <app-visualize-d3-weather [weatherData]="weatherData">
+
+                </app-visualize-d3-weather>
               </div>
             </div>
           </mat-card-content>
         </mat-card>
+      </div>
+      <div fxFlex="60">
+        <!-- <img src="assets/weather-data.gif" style="max-width: inherit;" /> -->
       </div>
       <div>
       </div>
