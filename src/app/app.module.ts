@@ -14,6 +14,8 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { WeatherWidgetComponent } from "./components/weather-widget/weather-widget.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { VisualizeD3WeatherComponent } from "./components/visualize-d3-weather/visualize-d3-weather.component";
+import { CityDashboardWidgetComponent } from "./components/city-dashboard-widget/city-dashboard-widget.component";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { VisualizeD3WeatherComponent } from "./components/visualize-d3-weather/v
     CityComponent,
     WeatherWidgetComponent,
     VisualizeD3WeatherComponent,
+    CityDashboardWidgetComponent,
 
   ],
   imports: [
@@ -39,7 +42,8 @@ import { VisualizeD3WeatherComponent } from "./components/visualize-d3-weather/v
     }),
     FlexLayoutModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatButtonModule
   ],
   providers: [HelperService],
   bootstrap: [AppComponent]

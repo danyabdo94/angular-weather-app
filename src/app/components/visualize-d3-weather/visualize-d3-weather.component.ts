@@ -28,8 +28,8 @@ export class VisualizeD3WeatherComponent implements OnInit {
   private line: d3Shape.Line<[number, number]>;
 
   constructor() {
-    this.width = 350 - this.margin.left - this.margin.right;
-    this.height = 150 - this.margin.top - this.margin.bottom;
+    this.width = 220;
+    this.height = 200 - this.margin.top - this.margin.bottom;
   }
 
   ngOnInit() {
@@ -59,7 +59,15 @@ export class VisualizeD3WeatherComponent implements OnInit {
     this.svg.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + this.height + ")")
-      .call(d3Axis.axisBottom(this.x));
+      .call(d3Axis.axisBottom(this.x))
+      .append("text")
+      .attr("class", "axis-title")
+      .attr("transform", "rotate(0)")
+      .attr("x", 180)
+      .attr("y", 25)
+      .attr("dx", "0.6em")
+      .style("text-anchor", "start")
+      .text("Passed Hours");
 
     this.svg.append("g")
       .attr("class", "axis axis--y")
@@ -68,9 +76,9 @@ export class VisualizeD3WeatherComponent implements OnInit {
       .attr("class", "axis-title")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
-      .attr("dy", ".71em")
+      .attr("dy", ".8em")
       .style("text-anchor", "end")
-      .text("Price ($)");
+      .text("Celsius °");
   }
 
   private drawLine() {

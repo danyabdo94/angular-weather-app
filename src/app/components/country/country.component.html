@@ -21,7 +21,6 @@
               </div>
               <div fxFlex="70">
                 <app-visualize-d3-weather [weatherData]="weatherData">
-
                 </app-visualize-d3-weather>
               </div>
             </div>
@@ -29,7 +28,17 @@
         </mat-card>
       </div>
       <div fxFlex="60">
-        <!-- <img src="assets/weather-data.gif" style="max-width: inherit;" /> -->
+        <mat-card>
+          <mat-card-content *ngIf="currentWeather">
+            <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="3%" style="text-align: center;">
+              <div fxFlex="20" *ngFor="let city of citiesWeathers" style="margin-bottom: 2%">
+                <app-city-dashboard-widget [name]="city.name" [temp_C]="city.temp_C">
+
+                </app-city-dashboard-widget>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
       </div>
       <div>
       </div>

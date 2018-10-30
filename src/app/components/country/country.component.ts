@@ -1,16 +1,19 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { countries } from "../../../assets/countries";
 import { WeatherService } from "src/app/services/weather.service";
 import { Climate, WeatherInterface } from "src/app/models/climate";
+import { AutoUnsubscribe } from "ngx-auto-unsubscribe";
 
+@AutoUnsubscribe()
 @Component({
   selector: "app-country",
   templateUrl: "./country.component.html",
   styleUrls: ["./country.component.css"]
 })
-export class CountryComponent implements OnInit {
+export class CountryComponent implements OnInit, OnDestroy {
 
   countries = countries;
+  citiesWeathers: { name: string, temp_C: string }[] = [];
   currentWeather: Climate = null;
   geopluginData: any = null;
   weatherData: WeatherInterface[] = [];
@@ -25,7 +28,12 @@ export class CountryComponent implements OnInit {
     };
 
   constructor(private weatherService: WeatherService) {
-
+    this.countries.forEach(country => {
+      country.Egypt.forEach(city => {
+        this.citiesWeathers.push({ name: city, temp_C: ((Math.random() * 25) + 5).toFixed(0) }); // between 5 to 30 "winter is coming"
+      });
+    });
+    console.log(this.citiesWeathers);
   }
 
   ngOnInit() {
@@ -37,8 +45,10 @@ export class CountryComponent implements OnInit {
           this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData: { data: any }) => {
             this.currentWeather = weatherData.data;
             console.log(this.currentWeather);
+            this.weatherData.push(new WeatherInterface(0, Number(this.currentWeather.current_condition[0].temp_C)));
+
             this.currentWeather.weather[0].hourly.forEach(hourWeather => {
-              this.weatherData.push(new WeatherInterface(Number(hourWeather.time) / 100, Number(hourWeather.tempC)));
+              this.weatherData.push(new WeatherInterface((Number(hourWeather.time) / 100) + 3, Number(hourWeather.tempC)));
             });
           });
 
@@ -64,5 +74,6 @@ export class CountryComponent implements OnInit {
         });
     }
   }
-
+  ngOnDestroy(): void {
+  }
 }
