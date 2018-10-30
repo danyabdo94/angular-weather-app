@@ -15,7 +15,10 @@ import { WeatherWidgetComponent } from "./components/weather-widget/weather-widg
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { VisualizeD3WeatherComponent } from "./components/visualize-d3-weather/visualize-d3-weather.component";
 import { CityDashboardWidgetComponent } from "./components/city-dashboard-widget/city-dashboard-widget.component";
-import {MatButtonModule} from "@angular/material/button";
+import { MatButtonModule } from "@angular/material/button";
+import { MatTableModule } from "@angular/material/table";
+import { MatDividerModule } from "@angular/material/divider";
+import { MinMaxWeatherWidgetComponent } from './components/min-max-weather-widget/min-max-weather-widget.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import {MatButtonModule} from "@angular/material/button";
     WeatherWidgetComponent,
     VisualizeD3WeatherComponent,
     CityDashboardWidgetComponent,
+    MinMaxWeatherWidgetComponent,
 
   ],
   imports: [
@@ -43,7 +47,9 @@ import {MatButtonModule} from "@angular/material/button";
     FlexLayoutModule,
     MatCardModule,
     MatTooltipModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatDividerModule
   ],
   providers: [HelperService],
   bootstrap: [AppComponent]

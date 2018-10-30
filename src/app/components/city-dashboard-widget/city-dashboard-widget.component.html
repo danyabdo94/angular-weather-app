@@ -1,8 +1,8 @@
-<mat-card>
+<mat-card class="reversed">
   <mat-card-content>
-    <button mat-button (click)="navigateTo(name)" style="white-space: normal;">
+    <button mat-button (click)="navigateTo(name)">
       <h3 class="mat-h3" style="margin: 5%;">{{name}}</h3>
+      <h3 class="mat-h3" style="margin: 1%;">{{temp_C}}°C</h3>
     </button>
-    <h3 class="mat-h3" style="margin: 1%;">{{temp_C}}°C</h3>
   </mat-card-content>
 </mat-card>

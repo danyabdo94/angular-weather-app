@@ -1,3 +1,97 @@
-<p>
-  city works!
-</p>
+<mat-card>
+  <mat-card-header style="text-align: center">
+    <h1>{{filteredObject.q}}</h1>
+  </mat-card-header>
+  <mat-card-content>
+    <div fxLayout="row" fxLayoutAlign="space-between start" style="margin-bottom :2%">
+      <div fxFlex="30">
+        <mat-card>
+          <mat-card-content>
+            <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isDayTime=='yes'"
+              [humidity]="currentWeather.current_condition[0].humidity" [temp_C]="currentWeather.current_condition[0].temp_C"
+              [pressure]="currentWeather.current_condition[0].pressure" [mintempC]="currentWeather.weather[0].mintempC"
+              [maxtempC]="currentWeather.weather[0].maxtempC">
+            </app-weather-widget>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="30">
+        <mat-card>
+          <mat-card-content>
+            <app-visualize-d3-weather [weatherData]="weatherData">
+            </app-visualize-d3-weather>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="35">
+        <mat-table [dataSource]="currentWeather.weather[0].hourly" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="time">
+            <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
+            <mat-cell *matCellDef="let element"> + {{(element.time/100 )+3}} Hours </mat-cell>
+          </ng-container>
+
+
+          <ng-container matColumnDef="weatherDesc">
+            <mat-header-cell *matHeaderCellDef> Weather </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <img [src]="element.weatherIconUrl[0].value" width="40%" height="40%"
+                style="margin:2%" />
+              {{element.weatherDesc[0].value}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="tempC">
+            <mat-header-cell *matHeaderCellDef> Temp °C </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.tempC}}°C </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="humidity">
+            <mat-header-cell *matHeaderCellDef> Humidity </mat-header-cell>
+            <mat-cell *matCellDef="let element"> <i class="wi wi-humidity"> {{element.humidity}}% </i>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="['time','weatherDesc','tempC','humidity']"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: ['time','weatherDesc','tempC','humidity'];"></mat-row>
+        </mat-table>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div fxLayout="row" fxLayoutAlign="space-between start" style="margin-top :2%">
+      <div fxFlex="35">
+        <mat-card>
+          <mat-card-content>
+            <mat-table [dataSource]="currentWeather.ClimateAverages[0].month" class="mat-elevation-z8">
+
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef> Month </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+              </ng-container>
+
+
+              <ng-container matColumnDef="avgMinTemp">
+                <mat-header-cell *matHeaderCellDef> Min Temp °C </mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.avgMinTemp}}°C </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="absMaxTemp">
+                <mat-header-cell *matHeaderCellDef> Max Temp °C </mat-header-cell>
+                <mat-cell *matCellDef="let element"> {{element.absMaxTemp}}°C </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="['name','avgMinTemp','absMaxTemp']"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: ['name','avgMinTemp','absMaxTemp'];"></mat-row>
+            </mat-table>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div fxFlex="55">
+        <mat-card>
+          <mat-card-content>
+            <app-min-max-weather-widget [temps]="monthly"></app-min-max-weather-widget>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

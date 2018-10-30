@@ -12,3 +12,8 @@ body {
   background: #fcfeff;
   color: #0C2C52;
 }
+
+.reversed{
+  color: #ffffff !important;
+  background: #0C2C52 !important;
+}
