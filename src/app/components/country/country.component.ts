@@ -4,6 +4,7 @@ import { WeatherService } from "src/app/services/weather.service";
 import { Climate, WeatherInterface, climateDayCondition, climateNightCondition } from "src/app/models/climate";
 import { AutoUnsubscribe } from "ngx-auto-unsubscribe";
 import { HelperService } from "src/app/services/helper.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @AutoUnsubscribe()
 @Component({
@@ -26,12 +27,17 @@ export class CountryComponent implements OnInit, OnDestroy {
     format: string
     extra: string
   } = {
-      q: null,
+      q: "Cairo Egypt",
       format: "json",
       extra: "localObsTime,isDayTime"
     };
 
-  constructor(private weatherService: WeatherService, private helperService: HelperService) {
+  constructor(
+    private weatherService: WeatherService,
+    private helperService: HelperService,
+    private ngxService: NgxUiLoaderService
+  ) {
+    this.ngxService.start();
     // tslint:disable-next-line:max-line-length
     this.helperService.getWeatherOfCities(this.countries, this.climateCondition, this.citiesWeathers, this.climateDayConditions, this.climateNightConditions);
     console.log(this.citiesWeathers);
@@ -43,20 +49,11 @@ export class CountryComponent implements OnInit, OnDestroy {
         position => {
           console.log(position);
           this.filteredObject.q = position.coords.latitude + "," + position.coords.longitude;
-          this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData: { data: any }) => {
-            this.currentWeather = weatherData.data;
-            console.log(this.currentWeather);
-            this.helperService.mapToVisualize(this.weatherData, this.currentWeather);
-          });
-
-          this.weatherService.getIp().subscribe((data: { ip: string }) => {
-            this.weatherService.getCityFromIp(data.ip).subscribe(clientData => {
-              this.geopluginData = clientData;
-            });
-          });
+          this.getasyncData();
 
         },
         error => {
+          this.getasyncData();
           switch (error.code) {
             case 1:
               alert("Please give the permission for the geolocation");
@@ -73,5 +70,21 @@ export class CountryComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+  }
+
+  getasyncData() {
+    this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData: { data: any }) => {
+      this.currentWeather = weatherData.data;
+      console.log(this.currentWeather);
+      this.helperService.mapToVisualize(this.weatherData, this.currentWeather);
+    });
+
+    this.weatherService.getIp().subscribe((data: { ip: string }) => {
+      this.weatherService.getCityFromIp(data.ip).subscribe(clientData => {
+        this.ngxService.stop();
+        this.geopluginData = clientData;
+      });
+    });
+
   }
 }

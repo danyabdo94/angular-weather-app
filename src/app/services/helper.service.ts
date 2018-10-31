@@ -37,9 +37,8 @@ export class HelperService {
 
   mapMinAdMaxToVisualize(monthly, weatherData: Climate) {
     weatherData.ClimateAverages[0].month.forEach((month, index) => {
-      const date = new Date((index + 1) + "-1-" + new Date().getFullYear());
-      monthly[0].values.push({ date: date, temperature: month.avgMinTemp });
-      monthly[1].values.push({ date: date, temperature: month.absMaxTemp });
+      monthly[0].values.push({ date: index + 1, temperature: month.avgMinTemp });
+      monthly[1].values.push({ date: index + 1, temperature: month.absMaxTemp });
     });
   }
 

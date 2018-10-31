@@ -18,7 +18,8 @@ import { CityDashboardWidgetComponent } from "./components/city-dashboard-widget
 import { MatButtonModule } from "@angular/material/button";
 import { MatTableModule } from "@angular/material/table";
 import { MatDividerModule } from "@angular/material/divider";
-import { MinMaxWeatherWidgetComponent } from './components/min-max-weather-widget/min-max-weather-widget.component';
+import { MinMaxWeatherWidgetComponent } from "./components/min-max-weather-widget/min-max-weather-widget.component";
+import { NgxUiLoaderModule } from "ngx-ui-loader";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MinMaxWeatherWidgetComponent } from './components/min-max-weather-widge
     MatTooltipModule,
     MatButtonModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    NgxUiLoaderModule
   ],
   providers: [HelperService],
   bootstrap: [AppComponent]

@@ -27,6 +27,7 @@
     "d3": "^5.7.0",
     "ngx-auto-unsubscribe": "^2.4.1",
     "ngx-loading": "^3.0.1",
+    "ngx-ui-loader": "^2.0.0",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },

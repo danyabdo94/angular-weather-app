@@ -7,19 +7,19 @@
     </div>
   </mat-card-header>
   <mat-card-content>
-    <div fxLayout="row" fxLayoutAlign="start start">
-      <div fxFlex="40">
+    <div flex fxLayout="row" fxLayout.lt-md="column"  fxLayoutAlign="start start">
+      <div fxFlex.gt-sm="40">
         <mat-card>
           <mat-card-content *ngIf="currentWeather">
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-              <div fxFlex="30">
+            <div  flex fxLayout="row" fxLayout.lt-md="column"  fxLayoutAlign="space-between center">
+              <div fxFlex.gt-sm="30">
                 <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isDayTime=='yes'"
                   [humidity]="currentWeather.current_condition[0].humidity" [temp_C]="currentWeather.current_condition[0].temp_C"
                   [pressure]="currentWeather.current_condition[0].pressure" [mintempC]="currentWeather.weather[0].mintempC"
                   [maxtempC]="currentWeather.weather[0].maxtempC">
                 </app-weather-widget>
               </div>
-              <div fxFlex="70">
+              <div fxFlex.gt-sm="70">
                 <app-visualize-d3-weather [weatherData]="weatherData">
                 </app-visualize-d3-weather>
               </div>
@@ -27,11 +27,11 @@
           </mat-card-content>
         </mat-card>
       </div>
-      <div fxFlex="60">
+      <div fxFlex.gt-sm="60">
         <mat-card>
           <mat-card-content *ngIf="currentWeather">
-            <div fxLayout="row wrap" fxLayoutAlign="space-between center"  style="text-align: center;margin: 3%;">
-              <div fxFlex="30" *ngFor="let city of citiesWeathers">
+            <div flex fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutAlign="space-between center"  style="text-align: center;margin: 3%;">
+              <div fxFlex.gt-sm="30" *ngFor="let city of citiesWeathers">
                 <app-city-dashboard-widget [name]="city.name" [temp_C]="city.temp_C" [condition]="city.condition" style="padding: 1%;">
 
                 </app-city-dashboard-widget>

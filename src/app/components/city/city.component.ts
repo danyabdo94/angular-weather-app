@@ -4,6 +4,7 @@ import { AutoUnsubscribe } from "ngx-auto-unsubscribe";
 import { WeatherService } from "src/app/services/weather.service";
 import { Climate, climateNightCondition, climateDayCondition, WeatherInterface } from "src/app/models/climate";
 import { HelperService } from "src/app/services/helper.service";
+import { NgxUiLoaderService } from "ngx-ui-loader";
 
 @AutoUnsubscribe()
 @Component({
@@ -39,12 +40,20 @@ export class CityComponent implements OnInit, OnDestroy {
 
   currentWeather: Climate = new Climate();
 
-  constructor(private active: ActivatedRoute, private weatherService: WeatherService, private helperService: HelperService) {
-    this.active.queryParams.subscribe(data => {
+  constructor
+    (
+    private active: ActivatedRoute,
+    private weatherService: WeatherService,
+    private helperService: HelperService,
+    private ngxService: NgxUiLoaderService
+    ) {
+      this.ngxService.start();
+      this.active.queryParams.subscribe(data => {
       this.filteredObject.q = data.city + " Egypt";
       this.weatherService.getWeatherInCity(this.filteredObject).subscribe((asyncWeatherData: { data: any }) => {
         this.currentWeather = asyncWeatherData.data;
         console.log(this.currentWeather);
+        this.ngxService.stop();
         this.helperService.mapToVisualize(this.weatherData, this.currentWeather);
 
         this.helperService.mapMinAdMaxToVisualize(this.monthly, this.currentWeather);

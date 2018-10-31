@@ -6,6 +6,7 @@ import * as d3ScaleChromatic from "d3-scale-chromatic";
 import * as d3Shape from "d3-shape";
 import * as d3Array from "d3-array";
 import * as d3Axis from "d3-axis";
+import * as d3TimeFormat from "d3-time-format";
 
 @Component({
   selector: "app-min-max-weather-widget",
@@ -15,7 +16,7 @@ import * as d3Axis from "d3-axis";
 })
 export class MinMaxWeatherWidgetComponent implements OnInit {
 
-  title = "Monthly Chart";
+  title = "Month/Temp Chart";
 
   @Input()
   temps = [
@@ -33,7 +34,7 @@ export class MinMaxWeatherWidgetComponent implements OnInit {
   data: any;
 
   svg: any;
-  margin = { top: 20, right: 80, bottom: 30, left: 50 };
+  margin = { top: 20, right: 20, bottom: 20, left: 20 };
   g: any;
   width: number;
   height: number;
@@ -47,7 +48,7 @@ export class MinMaxWeatherWidgetComponent implements OnInit {
   }
 
   ngOnInit() {
-console.log(this.temps);
+    console.log(this.temps);
     this.data = this.temps.map((v) => v.values.map((d) => d.date))[0];
     // .reduce((a, b) => a.concat(b), []);
 
@@ -59,12 +60,12 @@ console.log(this.temps);
   private initChart(): void {
     this.svg = d3.select("#cityChart");
 
-    this.width = this.svg.attr("width") - this.margin.left - this.margin.right;
-    this.height = this.svg.attr("height") - this.margin.top - this.margin.bottom;
+    this.width = 300;
+    this.height = 400;
 
     this.g = this.svg.append("g").attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-    this.x = d3Scale.scaleTime().range([0, this.width]);
+    this.x = d3Scale.scaleLinear().range([0, this.width]);
     this.y = d3Scale.scaleLinear().range([this.height, 0]);
     this.z = d3Scale.scaleOrdinal(d3ScaleChromatic.schemeCategory10);
 
@@ -97,7 +98,7 @@ console.log(this.temps);
       .attr("y", 6)
       .attr("dy", "0.71em")
       .attr("fill", "#000")
-      .text("Temperature, ºF");
+      .text("Temperature, ºC");
   }
 
   private drawPath(): void {
