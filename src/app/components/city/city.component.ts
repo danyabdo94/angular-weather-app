@@ -41,7 +41,7 @@ export class CityComponent implements OnInit, OnDestroy {
 
   constructor(private active: ActivatedRoute, private weatherService: WeatherService, private helperService: HelperService) {
     this.active.queryParams.subscribe(data => {
-      this.filteredObject.q = data.city;
+      this.filteredObject.q = data.city + " Egypt";
       this.weatherService.getWeatherInCity(this.filteredObject).subscribe((asyncWeatherData: { data: any }) => {
         this.currentWeather = asyncWeatherData.data;
         console.log(this.currentWeather);

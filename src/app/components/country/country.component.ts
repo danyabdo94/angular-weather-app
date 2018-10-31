@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { countries } from "../../../assets/countries";
 import { WeatherService } from "src/app/services/weather.service";
-import { Climate, WeatherInterface } from "src/app/models/climate";
+import { Climate, WeatherInterface, climateDayCondition, climateNightCondition } from "src/app/models/climate";
 import { AutoUnsubscribe } from "ngx-auto-unsubscribe";
 import { HelperService } from "src/app/services/helper.service";
 
@@ -13,9 +13,11 @@ import { HelperService } from "src/app/services/helper.service";
   providers: [HelperService]
 })
 export class CountryComponent implements OnInit, OnDestroy {
-
+  climateDayConditions = climateDayCondition;
+  climateNightConditions = climateNightCondition;
+  climateCondition = null;
   countries = countries;
-  citiesWeathers: { name: string, temp_C: string }[] = [];
+  citiesWeathers: { name: string, temp_C: string, condition: string }[] = [];
   currentWeather: Climate = null;
   geopluginData: any = null;
   weatherData: WeatherInterface[] = [];
@@ -30,11 +32,8 @@ export class CountryComponent implements OnInit, OnDestroy {
     };
 
   constructor(private weatherService: WeatherService, private helperService: HelperService) {
-    this.countries.forEach(country => {
-      country.Egypt.forEach(city => {
-        this.citiesWeathers.push({ name: city, temp_C: ((Math.random() * 25) + 5).toFixed(0) }); // between 5 to 30 "winter is coming"
-      });
-    });
+    // tslint:disable-next-line:max-line-length
+    this.helperService.getWeatherOfCities(this.countries, this.climateCondition, this.citiesWeathers, this.climateDayConditions, this.climateNightConditions);
     console.log(this.citiesWeathers);
   }
 
@@ -72,6 +71,7 @@ export class CountryComponent implements OnInit, OnDestroy {
         });
     }
   }
+
   ngOnDestroy(): void {
   }
 }

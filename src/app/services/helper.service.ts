@@ -43,7 +43,18 @@ export class HelperService {
     });
   }
 
-
+  getWeatherOfCities(countries, climateCondition, citiesWeathers, climateDayConditions, climateNightConditions) {
+    countries.forEach(country => {
+      country.Egypt.forEach(city => {
+        climateCondition = (6 < new Date().getHours() && new Date().getHours() < 18) ? climateDayConditions : climateNightConditions;
+        // get random condition
+        const randNumber = ((Math.random() * (Object.keys(climateCondition).length - 1))).toFixed(0);
+        const climateState = climateCondition[Object.keys(climateCondition)[randNumber]];
+        // between 5 to 30 "winter is coming"
+        citiesWeathers.push({ name: city, temp_C: ((Math.random() * 25) + 5).toFixed(0), condition: climateState });
+      });
+    });
+  }
 
 }
 

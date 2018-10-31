@@ -17,7 +17,7 @@ export const countries = [{
     "Matruh",
     "Minya",
     "Monufia",
-    "New Valley",
+    "Al Wadi Al Gaded",
     "North Sinai",
     "Port Said",
     "Qalyubia",

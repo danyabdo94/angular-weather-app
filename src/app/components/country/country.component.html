@@ -32,7 +32,7 @@
           <mat-card-content *ngIf="currentWeather">
             <div fxLayout="row wrap" fxLayoutAlign="space-between center"  style="text-align: center;margin: 3%;">
               <div fxFlex="30" *ngFor="let city of citiesWeathers">
-                <app-city-dashboard-widget [name]="city.name" [temp_C]="city.temp_C" style="padding: 1%;">
+                <app-city-dashboard-widget [name]="city.name" [temp_C]="city.temp_C" [condition]="city.condition" style="padding: 1%;">
 
                 </app-city-dashboard-widget>
               </div>

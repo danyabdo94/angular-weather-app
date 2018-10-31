@@ -2,12 +2,12 @@
   <mat-card-header style="text-align: center">
     <h1>{{filteredObject.q}}</h1>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content *ngIf="currentWeather.current_condition">
     <div fxLayout="row" fxLayoutAlign="space-between start" style="margin-bottom :2%">
       <div fxFlex="30">
         <mat-card>
           <mat-card-content>
-            <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isDayTime=='yes'"
+            <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isdaytime=='yes'"
               [humidity]="currentWeather.current_condition[0].humidity" [temp_C]="currentWeather.current_condition[0].temp_C"
               [pressure]="currentWeather.current_condition[0].pressure" [mintempC]="currentWeather.weather[0].mintempC"
               [maxtempC]="currentWeather.weather[0].maxtempC">

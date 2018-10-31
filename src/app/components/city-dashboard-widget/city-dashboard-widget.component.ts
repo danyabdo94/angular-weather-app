@@ -14,6 +14,8 @@ export class CityDashboardWidgetComponent implements OnInit {
   @Input()
   name: string;
 
+  @Input()
+  condition: string;
 
   constructor(private router: Router) { }
 
