@@ -40,14 +40,12 @@ export class CountryComponent implements OnInit, OnDestroy {
     this.ngxService.start();
     // tslint:disable-next-line:max-line-length
     this.helperService.getWeatherOfCities(this.countries, this.climateCondition, this.citiesWeathers, this.climateDayConditions, this.climateNightConditions);
-    console.log(this.citiesWeathers);
   }
 
   ngOnInit() {
     if (window.navigator.geolocation) {
       window.navigator.geolocation.getCurrentPosition(
         position => {
-          console.log(position);
           this.filteredObject.q = position.coords.latitude + "," + position.coords.longitude;
           this.getasyncData();
 
@@ -59,10 +57,10 @@ export class CountryComponent implements OnInit, OnDestroy {
               alert("Please give the permission for the geolocation");
               break;
             case 2:
-              console.log("Position Unavailable");
+              alert("Please check the connection");
               break;
             case 3:
-              console.log("Timeout");
+              alert("Please check the connection");
               break;
           }
         });
@@ -75,7 +73,6 @@ export class CountryComponent implements OnInit, OnDestroy {
   getasyncData() {
     this.weatherService.getWeatherInCity(this.filteredObject).subscribe((weatherData: { data: any }) => {
       this.currentWeather = weatherData.data;
-      console.log(this.currentWeather);
       this.helperService.mapToVisualize(this.weatherData, this.currentWeather);
     });
 

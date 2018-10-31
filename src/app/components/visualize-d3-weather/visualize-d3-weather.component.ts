@@ -33,7 +33,6 @@ export class VisualizeD3WeatherComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.weatherData);
     this.initSvg();
     this.initAxis();
     this.drawAxis();

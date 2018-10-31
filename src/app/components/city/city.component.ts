@@ -52,7 +52,6 @@ export class CityComponent implements OnInit, OnDestroy {
       this.filteredObject.q = data.city + " Egypt";
       this.weatherService.getWeatherInCity(this.filteredObject).subscribe((asyncWeatherData: { data: any }) => {
         this.currentWeather = asyncWeatherData.data;
-        console.log(this.currentWeather);
         this.ngxService.stop();
         this.helperService.mapToVisualize(this.weatherData, this.currentWeather);
 

@@ -105,124 +105,78 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Properties</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#title">title</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-
-
-        </tbody>
-    </table>
-</section>
-
-
-
-
-
-
 
     <section>
-    
-        <h3 id="inputs">
-            Properties
-        </h3>
+    <h3 id="constructor">Constructor</h3>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="title"></a>
-                        <span class="name">
-                            <b>
-                            title
-                            </b>
-                            <a href="#title"><span class="icon ion-ios-link"></span></a>
-                        </span>
+<code>constructor()</code>
                     </td>
                 </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <code>title:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;weather-app&#x27;</code>
-                        </td>
-                    </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/app.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/app/app.component.ts:8</a></div>
                             </td>
                         </tr>
-
 
             </tbody>
         </table>
 </section>
 
+
+
+
+
+
+
 </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &quot;@angular/core&quot;;
 
 @Component({
-  selector: &#x27;app-root&#x27;,
-  templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  selector: &quot;app-root&quot;,
+  templateUrl: &quot;./app.component.html&quot;,
+  styleUrls: [&quot;./app.component.css&quot;],
 })
 export class AppComponent {
-  title &#x3D; &#x27;weather-app&#x27;;
+
+  constructor() {
+  }
+
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;!--The content below is only a placeholder and can be replaced.--&gt;
-&lt;div style&#x3D;&quot;text-align:center&quot;&gt;
-  &lt;h1&gt;
-    Welcome to {{ title }}!
-  &lt;/h1&gt;
-  &lt;img width&#x3D;&quot;300&quot; alt&#x3D;&quot;Angular Logo&quot; src&#x3D;&quot;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg&#x3D;&#x3D;&quot;&gt;
-&lt;/div&gt;
-&lt;h2&gt;Here are some links to help you start: &lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://angular.io/tutorial&quot;&gt;Tour of Heroes&lt;/a&gt;&lt;/h2&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://github.com/angular/angular-cli/wiki&quot;&gt;CLI Documentation&lt;/a&gt;&lt;/h2&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2&gt;&lt;a target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener&quot; href&#x3D;&quot;https://blog.angular.io/&quot;&gt;Angular blog&lt;/a&gt;&lt;/h2&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ngx-ui-loader&gt;&lt;/ngx-ui-loader&gt;
 
+&lt;div class&#x3D;&quot;stage&quot; flex fxLayout&#x3D;&quot;row&quot; fxLayout.lt-md&#x3D;&quot;column&quot;  fxLayoutAlign&#x3D;&quot;start center&quot; &gt;
+  &lt;div fxFlex.gt-sm&#x3D;&quot;50&quot; fxLayoutAlign&#x3D;&quot;start center&quot;&gt;
+    &lt;svg class&#x3D;&quot;sunshine&quot; xmlns&#x3D;&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink&#x3D;&quot;http://www.w3.org/1999/xlink&quot; viewBox&#x3D;&quot;0 0 512 512&quot;&gt;
+      &lt;path class&#x3D;&quot;sun-full&quot; d&#x3D;&quot;M256,144c-61.8,0-112,50.2-112,112s50.2,112,112,112s112-50.2,112-112S317.8,144,256,144z M256,336
+        c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S300.2,336,256,336z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-eight&quot; d&#x3D;&quot;M131.6,357.8l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6s16.4,6.2,22.6,0l22.6-22.6c6.2-6.3,6.2-16.4,0-22.6
+        C147.9,351.6,137.8,351.6,131.6,357.8z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-seven&quot; d&#x3D;&quot;M256,400c-8.8,0-16,7.2-16,16v32c0,8.8,7.2,16,16,16s16-7.2,16-16v-32C272,407.2,264.8,400,256,400z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-six&quot; d&#x3D;&quot;M380.5,357.8c-6.3-6.2-16.4-6.2-22.6,0c-6.3,6.2-6.3,16.4,0,22.6l22.6,22.6c6.2,6.2,16.4,6.2,22.6,0
+        s6.2-16.4,0-22.6L380.5,357.8z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-five&quot; d&#x3D;&quot;M448,240h-32c-8.8,0-16,7.2-16,16s7.2,16,16,16h32c8.8,0,16-7.2,16-16S456.8,240,448,240z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-four&quot; d&#x3D;&quot;M380.4,154.2l22.6-22.6c6.2-6.2,6.2-16.4,0-22.6s-16.4-6.2-22.6,0l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6
+        C364.1,160.4,374.2,160.4,380.4,154.2z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-three&quot; d&#x3D;&quot;M256,112c8.8,0,16-7.2,16-16V64c0-8.8-7.2-16-16-16s-16,7.2-16,16v32C240,104.8,247.2,112,256,112z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-two&quot; d&#x3D;&quot;M131.5,154.2c6.3,6.2,16.4,6.2,22.6,0c6.3-6.2,6.3-16.4,0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6,0
+        c-6.2,6.2-6.2,16.4,0,22.6L131.5,154.2z&quot; /&gt;
+      &lt;path class&#x3D;&quot;sun-ray-one&quot; d&#x3D;&quot;M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z&quot; /&gt;
+    &lt;/svg&gt;
+    &lt;h4 class&#x3D;&quot;mat-display-2&quot; style&#x3D;&quot;margin: 0px;&quot;&gt;WeatherApp&lt;/h4&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;router-outlet  &gt;&lt;/router-outlet&gt;
 </code></pre>
     </div>
 
@@ -251,8 +205,8 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!--The content below is only a placeholder and can be replaced.--><div style="text-align:center">  <h1>    Welcome to {{ title }}!  </h1>  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="></div><h2>Here are some links to help you start: </h2><ul>  <li>    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>  </li>  <li>    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>  </li>  <li>    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>  </li></ul></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'}];
+        var COMPONENT_TEMPLATE = '<div><ngx-ui-loader></ngx-ui-loader><div class="stage" flex fxLayout="row" fxLayout.lt-md="column"  fxLayoutAlign="start center" >  <div fxFlex.gt-sm="50" fxLayoutAlign="start center">    <svg class="sunshine" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">      <path class="sun-full" d="M256,144c-61.8,0-112,50.2-112,112s50.2,112,112,112s112-50.2,112-112S317.8,144,256,144z M256,336        c-44.2,0-80-35.8-80-80s35.8-80,80-80s80,35.8,80,80S300.2,336,256,336z" />      <path class="sun-ray-eight" d="M131.6,357.8l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6s16.4,6.2,22.6,0l22.6-22.6c6.2-6.3,6.2-16.4,0-22.6        C147.9,351.6,137.8,351.6,131.6,357.8z" />      <path class="sun-ray-seven" d="M256,400c-8.8,0-16,7.2-16,16v32c0,8.8,7.2,16,16,16s16-7.2,16-16v-32C272,407.2,264.8,400,256,400z" />      <path class="sun-ray-six" d="M380.5,357.8c-6.3-6.2-16.4-6.2-22.6,0c-6.3,6.2-6.3,16.4,0,22.6l22.6,22.6c6.2,6.2,16.4,6.2,22.6,0        s6.2-16.4,0-22.6L380.5,357.8z" />      <path class="sun-ray-five" d="M448,240h-32c-8.8,0-16,7.2-16,16s7.2,16,16,16h32c8.8,0,16-7.2,16-16S456.8,240,448,240z" />      <path class="sun-ray-four" d="M380.4,154.2l22.6-22.6c6.2-6.2,6.2-16.4,0-22.6s-16.4-6.2-22.6,0l-22.6,22.6c-6.2,6.2-6.2,16.4,0,22.6        C364.1,160.4,374.2,160.4,380.4,154.2z" />      <path class="sun-ray-three" d="M256,112c8.8,0,16-7.2,16-16V64c0-8.8-7.2-16-16-16s-16,7.2-16,16v32C240,104.8,247.2,112,256,112z" />      <path class="sun-ray-two" d="M131.5,154.2c6.3,6.2,16.4,6.2,22.6,0c6.3-6.2,6.3-16.4,0-22.6l-22.6-22.6c-6.2-6.2-16.4-6.2-22.6,0        c-6.2,6.2-6.2,16.4,0,22.6L131.5,154.2z" />      <path class="sun-ray-one" d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z" />    </svg>    <h4 class="mat-display-2" style="margin: 0px;">WeatherApp</h4>  </div></div><router-outlet  ></router-outlet></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CityComponent', 'selector': 'app-city'},{'name': 'CityDashboardWidgetComponent', 'selector': 'app-city-dashboard-widget'},{'name': 'CountryComponent', 'selector': 'app-country'},{'name': 'MinMaxWeatherWidgetComponent', 'selector': 'app-min-max-weather-widget'},{'name': 'VisualizeD3WeatherComponent', 'selector': 'app-visualize-d3-weather'},{'name': 'WeatherWidgetComponent', 'selector': 'app-weather-widget'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};
 </script>

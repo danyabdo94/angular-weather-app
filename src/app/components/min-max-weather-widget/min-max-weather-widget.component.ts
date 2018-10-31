@@ -48,7 +48,6 @@ export class MinMaxWeatherWidgetComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.temps);
     this.data = this.temps.map((v) => v.values.map((d) => d.date))[0];
     // .reduce((a, b) => a.concat(b), []);
 
