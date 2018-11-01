@@ -20,6 +20,9 @@ import { MatTableModule } from "@angular/material/table";
 import { MatDividerModule } from "@angular/material/divider";
 import { MinMaxWeatherWidgetComponent } from "./components/min-max-weather-widget/min-max-weather-widget.component";
 import { NgxUiLoaderModule } from "ngx-ui-loader";
+import { MatExpansionModule } from "@angular/material/expansion";
+import {DragDropModule} from "@angular/cdk/drag-drop";
+
 
 @NgModule({
   declarations: [
@@ -51,6 +54,8 @@ import { NgxUiLoaderModule } from "ngx-ui-loader";
     MatButtonModule,
     MatTableModule,
     MatDividerModule,
+    MatExpansionModule,
+    DragDropModule,
     NgxUiLoaderModule
   ],
   providers: [HelperService],

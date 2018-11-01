@@ -1,6 +1,6 @@
-<ngx-ui-loader></ngx-ui-loader>
+<ngx-ui-loader [fgsType]="Spinner.squareLoader" fgsColor="#4682b4" pbColor="#4682b4"></ngx-ui-loader>
 
-<div class="stage" flex fxLayout="row" fxLayout.lt-md="column"  fxLayoutAlign="start center" >
+<div class="stage" flex fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start center">
   <div fxFlex.gt-sm="50" fxLayoutAlign="start center">
     <svg class="sunshine" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512">
       <path class="sun-full" d="M256,144c-61.8,0-112,50.2-112,112s50.2,112,112,112s112-50.2,112-112S317.8,144,256,144z M256,336
@@ -18,8 +18,8 @@
         c-6.2,6.2-6.2,16.4,0,22.6L131.5,154.2z" />
       <path class="sun-ray-one" d="M112,256c0-8.8-7.2-16-16-16H64c-8.8,0-16,7.2-16,16s7.2,16,16,16h32C104.8,272,112,264.8,112,256z" />
     </svg>
-    <h4 class="mat-display-2" style="margin: 0px;">WeatherApp</h4>
+    <h4 class="mat-display-2" style="margin: 0px;" routerLink="/app/country">WeatherApp</h4>
   </div>
 </div>
 
-<router-outlet  ></router-outlet>
+<router-outlet></router-outlet>

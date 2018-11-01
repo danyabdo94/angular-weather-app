@@ -1,0 +1,4 @@
+- WeatherApp 
+------------------------------v0.0.1
+- full implemented d3 components for the hourly and monthly changes.
+- country screen and city screen are fully implemnted.

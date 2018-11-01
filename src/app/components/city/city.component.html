@@ -4,8 +4,8 @@
   </mat-card-header>
   <mat-card-content *ngIf="currentWeather.current_condition">
     <div flex fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start" style="margin-bottom :2%">
-      <div fxFlex.gt-sm="30" >
-        <mat-card>
+      <div fxFlex.gt-sm="30">
+        <mat-card cdkDrag>
           <mat-card-content>
             <app-weather-widget [weatherDesc]="currentWeather.current_condition[0].weatherDesc[0].value" [dayLight]="currentWeather.current_condition[0].isdaytime=='yes'"
               [humidity]="currentWeather.current_condition[0].humidity" [temp_C]="currentWeather.current_condition[0].temp_C"
@@ -16,7 +16,7 @@
         </mat-card>
       </div>
       <div fxFlex.gt-sm="30">
-        <mat-card>
+        <mat-card cdkDrag>
           <mat-card-content>
             <app-visualize-d3-weather [weatherData]="weatherData">
             </app-visualize-d3-weather>
@@ -24,7 +24,7 @@
         </mat-card>
       </div>
       <div fxFlex.gt-sm="35">
-        <mat-table [dataSource]="currentWeather.weather[0].hourly" class="mat-elevation-z8">
+        <mat-table cdkDrag [dataSource]="currentWeather.weather[0].hourly" class="mat-elevation-z8">
 
           <ng-container matColumnDef="time">
             <mat-header-cell *matHeaderCellDef> Time </mat-header-cell>
@@ -58,7 +58,7 @@
     <mat-divider></mat-divider>
     <div flex fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between start" style="margin-top :2%">
       <div fxFlex.gt-sm="35">
-        <mat-card>
+        <mat-card cdkDrag>
           <mat-card-content>
             <mat-table [dataSource]="currentWeather.ClimateAverages[0].month" class="mat-elevation-z8">
 
@@ -85,7 +85,7 @@
         </mat-card>
       </div>
       <div fxFlex.gt-sm="55">
-        <mat-card>
+        <mat-card cdkDrag>
           <mat-card-content>
             <app-min-max-weather-widget [temps]="monthly"></app-min-max-weather-widget>
           </mat-card-content>

@@ -1,0 +1,2 @@
+- need to minimize the assets folder
+- d3 not fully responsive

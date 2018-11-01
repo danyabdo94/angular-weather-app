@@ -8,12 +8,27 @@ body {
   background: #fcfeff;
   color: #0C2C52;
 }
+
 .mat-card {
   background: #fcfeff;
   color: #0C2C52;
 }
 
-.reversed{
+.reversed {
   color: #ffffff !important;
   background: #0C2C52 !important;
+}
+
+mat-expansion-panel-header,
+.mat-expansion-panel-content,
+.mat-expansion-panel-header.mat-expanded:focus,
+.mat-expansion-panel-header.mat-expanded:hover,
+.mat-expansion-panel {
+  background: #fcfeff;
+  color: #0C2C52 !important;
+
+}
+.mat-expansion-panel-header-title
+{
+  color: #0C2C52 !important;
 }
